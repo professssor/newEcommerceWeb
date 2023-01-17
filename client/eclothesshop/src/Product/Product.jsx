@@ -79,7 +79,7 @@ function Product() {
 
 
   return (
-    <div className="product-page-container flex justify-around   ">
+    <div className="product-page-container flex justify-around  flex-wrap  mb-32 ">
       {/* left part of the */}
 
       {loading ? (
@@ -87,7 +87,9 @@ function Product() {
       ) : (
         <>
           <div className="  selected-product-images  flex  mt-12 ">
-            <div className="image-stack flex-1 ">
+
+
+            <div className=" hidden sm:block image-stack flex-1 ">
               <img
                 className={`w-24 h-24 object-cover my-4 ${
                   clickedImageOne ? `imageborder` : ""
@@ -115,7 +117,7 @@ function Product() {
                 }}
               />
             </div>
-            <div className="main-product-image    flex-5 ">
+            <div className="main-product-image   flex-5 ">
               <img
                 className="w-full h-full  object-cover"
                 src={
@@ -189,7 +191,7 @@ function Product() {
           <span className=" text-yellow-500 m-2"><ErrorOutlineIcon/></span>  
            <span>item is already present in cart, click again to increase the quantity  </span> </div>
           {/* wishlist button */}
-          <div className="compare-buttons  text-xs font-thin">
+          <div className="compare-buttons  text-xs font-thin flex ">
             <button className="focus:outline-none">
               {" "}
               <span className="text-red-400  ">
@@ -215,7 +217,7 @@ function Product() {
             <h6 className="my-1">Lorem ipsum dolor sit.</h6>
           </div>
           <hr className="w-10/12" />
-          <div className="lorem-text p-2 my-4 ">
+          <div className="lorem-text p-2  ">
             <h3>description</h3>
             <hr className="w-10/12" />
             <h3>additional information</h3>

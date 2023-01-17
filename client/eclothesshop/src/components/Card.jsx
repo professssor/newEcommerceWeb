@@ -13,10 +13,10 @@ function Card({item,}) {
 
 
    return (
-    <div className='m-4 p-2 '>
+    <div className='m-2 mx-auto ' >
       <Link to={`/product/${item.id}`}>
         <div className="featured-image-container   ">
-          { item?.attributes.isNew ? <div className='p-2 m-1 absolute z-10  text-xs font-medium  border-2 text-white hover:font-black transition-all ease-in-out duration-500' ><span className=''>Must-Have</span></div> : null}
+          { item?.attributes.isNew ? <div className='p-2 m-1 absolute z-10  text-xs font-medium  border-2 text-black hover:font-black transition-all ease-in-out duration-500' ><span className=''>Must-Have</span></div> : null}
         
                 <img  className='card-image image-hover ' src={apiUploadURL + item?.attributes.img.data.attributes.url} alt="" />
        

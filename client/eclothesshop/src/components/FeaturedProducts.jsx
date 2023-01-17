@@ -14,19 +14,19 @@ const FeaturedProducts = ({ type }) => {
 
 
   return (
-    <div className="container py-4 mx-auto my-20 ">
+    <div className="container py-4 mx-auto my-20  ">
       <div
-        className="top flex  justify-between my-2 mx-20
+        className="top md:flex xs:inline-block  justify-between my-2 p-4
      items-start"
       >
-        <h1 className="text-2xl  font-black ">{type} Products</h1>
-        <p className="w-4/12 lorem-text">
+        <h1 className=" text-center    text-2xl  font-black ">{type} Products</h1>
+        <p className="w-4/12 lorem-text  hidden   lg:inline-block ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
           placeat cumque? Excepturi eius inventore velit quaerat aliquam autem
           id minus.
         </p>
       </div>
-      <div className="bottom flex  justify-center space-x-4">
+      <div className=" w-10/12 mx-auto bottom flex flex-wrap  justify-around  ">
         {error
           ? "Something went wrong!"
           : loading

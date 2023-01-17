@@ -3,14 +3,16 @@ import List from '../components/List'
 import {useParams} from "react-router-dom"
 import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 
 
 function Products() {
   const categoryId= parseInt(useParams().id) 
 
-  const [maxPrice, setMaxPrice]= useState(1000);
-  const [sort,setSort]=useState() ;
+
+  const [maxPrice, setMaxPrice]= useState(10000);
+  const [sort,setSort]=useState("asc") ;
   // for fetc hing data with help of usefetch custom hook
   const {data, error, loading}= useFetch(`/sub-categories?{filters][categories][id][$eql]=${categoryId}`);
 
@@ -35,7 +37,7 @@ const handleChange=(e)=>{
     <div className=' flex '>
       {/* the product catergories and filter code */}
   
-    <div className='  products-filter-container w-3/12  min-w-max  '>
+    <div className=' hidden md:block products-filter-container w-3/12  min-w-max  '>
       <div className='my-4  '>
         <h1 className="heading-filter-columm  ">Product Categories</h1>
 
@@ -48,24 +50,13 @@ const handleChange=(e)=>{
           )
         )}
  
-        {/* <section className='' >
-            <input type="checkbox" id ="1"value={1} name="hat" />
-        <label htmlFor="1"> Hat</label>
-        </section>
-      <section className=''>
-             <input type="checkbox" id ="2"value={2} />
-        <label htmlFor="shirt"> Shirt</label>
-      </section>
-      <section  className=''>
-            <input type="checkbox" id ="2"value={2} />
-        <label htmlFor="trouser"> Trouser</label>
-        </section> */}
+
     
       </div>
       <div className=''>
                <h1 className="heading-filter-columm ">Filter by price </h1>
                <span>0</span>
-               <input type="range"   min={0} max={1000} onChange={(e)=>setMaxPrice(e.target.value)} />
+               <input type="range"   min={0} max={10000} onChange={(e)=>setMaxPrice(e.target.value)} />
                <span>{maxPrice}</span>
       </div>
       <div className=''>
@@ -86,12 +77,15 @@ const handleChange=(e)=>{
 
 
     {/* the product show case code */}
-    <div className="w-full   product-showcase  mx-10 flex flex-col items-center " >
+    <div className="w-full  product-showcase  mx-10 flex flex-col  flex-wrap items-center " >
+     
       <div className=' w-full  h-64 product-showcase-header-image rounded-md '> 
-          <img  className='rounded-md stock-img  object-cover' src="https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg" alt="" />
+          <img  className='rounded-md stock-img  object-cover' src="https://i.pinimg.com/originals/77/f1/bf/77f1bfbedd14cbd04360164e6fce42a0.jpg" alt="" />
       </div>
-    <div className= 'rounded-md  mt-6  p-2  '>
-       <List catId={categoryId}  sort={sort} maxPrice ={maxPrice} selectedCat={selectedbox} />
+       <h1 className='font-light text-3xl  w-full p-2'>{categoryId===2? "Men's section": "Women's section"} <span><CheckCircleOutlineIcon/></span></h1>
+    <div className= 'rounded-md  mt-6  p-2  bg-gray-100 border-1 w-full mx-auto '>
+  <List catId={categoryId}  sort={sort} maxPrice ={maxPrice} selectedCat={selectedbox} />
+    
     </div>
      
      
